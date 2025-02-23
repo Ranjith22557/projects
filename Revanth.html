@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marriage Invitation</title>
+
+    <style>
+        body {
+            font-family: 'Great Vibes', cursive;
+            text-align: center;
+            background: linear-gradient(to right, #fff5e6, #f4d9c6);
+            margin: 0;
+            padding: 20px;
+            
+        }
+        .container {
+            background: rgb(233, 222, 222);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            max-width: 600px;
+            margin: auto;
+        }
+        h1 {
+            text-shadow: 2px 2px 10px rgb(152, 148, 148);
+            font-family: 'Dancing Script', cursive;
+            color: #b22222;
+            font-size: 1.5em;
+            
+        }
+        .name-ani {
+            margin-left: 20px;
+            white-space: nowrap;
+            overflow: hidden;
+            animation: animate forwards 5s infinite;
+        }
+        @keyframes animate {
+        0% { 
+            width: 0px;
+        }
+        100% {
+            width: 100%;
+        }
+        }
+        h2, h4 {
+            color: #8B0000;
+        }
+        h5{
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+            animation: bounce 2s infinite alternate ease-in-out;
+            
+        }
+        @keyframes bounce {
+            from { transform: translateY(0); }
+            to { transform: translateY(-20px); }
+        }
+        p {
+            font-size: 1.3em;
+            color: #6d4c41;
+        }
+        .venue {
+            font-weight: bold;
+            font-size: 1.4em;
+            color: #d4a017;
+        }
+        .map{
+            font-weight: bold;
+            font-size: 1em;
+            color: #d4a017;
+        }
+        .bus-animation {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            height: 100px;
+            overflow: hidden;
+        }
+        .bus-stand {
+            font-size: 2em;
+            position: absolute;
+            left: 0;  /* Starts at the first bus stand position */
+        }
+        .drop {
+            font-size: 2em;
+            position: absolute;
+            right: 0;
+        }
+        .bus {
+            font-size: 2em;
+            position: absolute;
+            left: -50px;
+            animation: moveBus 5s linear infinite; /* Added 'infinite' for looping */
+        }
+
+        .walk {
+            font-size: 2em;
+            position: absolute;
+            left: 50%;
+            opacity: 0;
+            animation: walkToMahal 4s linear 4s infinite forwards; /* Added 'infinite' for looping */
+        }
+
+        .stop-icons {
+            font-size: 1.5em;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 10px;
+        }
+        @keyframes moveBus {
+            0% { left: -50px; }
+            50% { left: 50%; }
+            100% { left: 50%; opacity: 0; }
+        }
+        @keyframes walkToMahal {
+            0% { left: 50%; opacity: 0; }
+            10% { opacity: 1; }
+            100% { left: 80%; opacity: 1; }
+        }
+        .tvmbus-stand{
+            font-size: xx-small;
+            position: absolute;
+            left: 0;
+            width: 1px;
+            margin-left: 10px;
+            margin-top: 80px;
+        }
+        .bus-stop{
+            font-size: xx-small;
+            position: absolute;
+            width: 1px;
+            margin-left: 5px;
+            margin-top: 80px; 
+        }
+        .drop-loc{
+            font-size: xx-small;
+            position: absolute;
+            left: 0;
+            width: 1px;
+            margin-left: 280px;
+            margin-top: 80px;
+        }
+        .countdown {
+            display: table;
+            font-size: 1.1em;
+            font-weight: bold;
+            color: #b22222;
+        }
+        .countdown div {
+            display: table-cell;
+            padding: 3px;
+            border: 1px solid #b22222;
+            border-radius: 5px;
+            background: #fff5e6;
+            margin: 5px;
+        }
+        .about{
+            margin-left: 200px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h5">YoYo Boys😎</h5>
+        <h2>You're Invited!</h2>
+        <h4>Together with their families</h4>
+        <div class="name-ani">
+            <h1>REVANTH SANTHOSH</h1>
+            <h3>❤️</h3>
+            <h1>HEMALATHA</h1>
+        </div>
+        <p>cordially invite you to join the occasion of their joyous commitment on</p>
+        <div>
+            <p><strong>MARCH 12, 2025</strong> at <strong>6 AM</strong></p>
+        </div>
+        <div>
+            <p>The Reception will be on <strong>March 11, 2025, from 6 PM</strong> onwards.</p>
+            <p>at</p>
+            <p class="venue">Kumaran Mahal, Vengikkal, Thiruvannamalai</p>
+        </div>
+        <div class="countdown" id="countdown">
+            <div id="days"></div>
+            <div id="hours"></div>
+            <div id="minutes"></div>
+            <div id="seconds"></div>
+        </div>
+
+        <div class="bus-animation">
+            <span class="bus-stand">🚏</span>
+            <span class="bus">🚌</span>
+            <span class="walk">🚶‍♂️‍➡️</span>
+            <span class="drop">📍</span>
+            <p class="tvmbus-stand"><strong>TVM Bus Stand</strong></p>
+            <p class="bus-stop"><strong>Thendral Nagar</strong></p>
+            <p class="drop-loc"><strong>Kumaran Mahal</strong></p>
+        </div><br>
+        
+        <div class="map">
+            <a href="https://www.google.com/maps/place/Kumaran+Mahal/@12.2592445,79.0655713,17z/data=!3m1!4b1!4m6!3m5!1s0x3bacc0fed3d6e5c5:0x47cac116248ca7f4!8m2!3d12.2592445!4d79.0681462!16s%2Fg%2F11c5wkchzt?entry=ttu&g_ep=EgoyMDI1MDIxMi4wIKXMDSoASAFQAw%3D%3D" target="_blank">View on Google Maps</a>
+        </div><br>
+        <div class="google-map">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3915.6798483253733!2d79.0655713147216!3d12.259244491316387!2m3!1f0!2f0!3f0!3m2!1i300!2i200!4f13.1!3m3!1m2!1s0x3bacc0fed3d6e5c5%3A0x47cac116248ca7f4!2sKumaran%20Mahal!5e0!3m2!1sen!2sin!4v1645543442378!5m2!1sen!2sin" width="300" height="200" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+
+        <div class="contact">
+            <h2>Contact</h2>
+            <p>📱 +91 9944191055</p>
+        </div><br>
+
+        <div class="about">
+            <a href="https://www.instagram.com/__ranjith_ar__?igsh=MTJuYmxoc2Q0MWo3cQ%3D%3D&utm_source=qr">About invitation</a>
+        </div>
+
+        <script>
+            function updateCountdown() {
+            const weddingDate = new Date("March 12, 2025 06:00:00").getTime();
+            const now = new Date().getTime();
+            const timeLeft = weddingDate - now;
+
+            if (timeLeft <= 0) {
+                document.getElementById("countdown").innerHTML = "The Wedding is Happening Now! 🎉";
+                return;
+            }
+
+            const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+            document.getElementById("days").innerHTML = `<strong>${days}</strong> Days`;
+            document.getElementById("hours").innerHTML = `<strong>${hours}</strong> Hours`;
+            document.getElementById("minutes").innerHTML = `<strong>${minutes}</strong> Minutes`;
+            document.getElementById("seconds").innerHTML = `<strong>${seconds}</strong> Seconds`;
+        }
+    
+            setInterval(updateCountdown, 1000);
+            updateCountdown(); // Initial call
+        </script>
+
+    </div>
+</body>
+</html>
